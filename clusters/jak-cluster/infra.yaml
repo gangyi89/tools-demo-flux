@@ -1,0 +1,62 @@
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: infra-controllers
+  namespace: flux-system
+spec:
+  interval: 2h
+  retryInterval: 1m
+  timeout: 5m
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  path: ./infra/controllers
+  prune: true
+  wait: true
+  patches:
+    - patch: |
+        - op: replace
+          path: /spec/values/grafana/ingress/hosts/0
+          value: "grafana-jak.gangstack.com"
+        - op: replace
+          path: /spec/values/grafana/ingress/tls/0/hosts/0
+          value: "grafana-jak.gangstack.com"
+      target:
+        kind: HelmRelease
+        name: prometheus-operator
+---
+apiVersion: kustomize.toolkit.fluxcd.io/v1
+kind: Kustomization
+metadata:
+  name: infra-configs
+  namespace: flux-system
+spec:
+  dependsOn:
+    - name: infra-controllers
+  interval: 1h
+  retryInterval: 1m
+  timeout: 5m
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  path: ./infra/configs
+  prune: true
+  patches:
+    - patch: |
+        - op: replace
+          path: /spec/acme/server
+          value: https://acme-v02.api.letsencrypt.org/directory
+      target:
+        kind: ClusterIssuer
+        name: letsencrypt
+    - patch: |
+        - op: replace
+          path: /spec/rules/0/host
+          value: "kibana-jak.gangstack.com"
+        - op: replace
+          path: /spec/tls/0/hosts/0
+          value: "kibana-jak.gangstack.com"
+      target:
+        kind: Ingress
+        name: kibana-ingress

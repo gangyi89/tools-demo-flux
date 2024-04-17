@@ -1,0 +1,62 @@
+apiVersion: source.toolkit.fluxcd.io/v1beta2
+kind: HelmRepository
+metadata:
+  name: fluentd
+  namespace: elastic
+spec:
+  interval: 24h
+  url: https://fluent.github.io/helm-charts
+---
+apiVersion: helm.toolkit.fluxcd.io/v2beta2
+kind: HelmRelease
+metadata:
+  name: fluentd
+  namespace: elastic
+spec:
+  interval: 30m
+  chart:
+    spec:
+      chart: fluentd
+      version: "0.5.1"
+      sourceRef:
+        kind: HelmRepository
+        name: fluentd
+        namespace: elastic
+      interval: 12h
+  values:
+    env:
+      - name: K8S_NODE_NAME
+        valueFrom:
+          fieldRef:
+            fieldPath: spec.nodeName
+      - name: FLUENT_ELASTICSEARCH_HOST
+        value: "quickstart-es-http.elastic.svc"
+      - name: FLUENT_ELASTICSEARCH_PORT
+        value: "9200" 
+      - name: FLUENT_ELASTICSEARCH_SCHEME
+        value: "https"
+      - name: FLUENT_ELASTICSEARCH_SSL_VERIFY
+        value: "false"
+      - name: FLUENT_ELASTICSEARCH_USER
+        value: "elastic"
+      - name: FLUENT_ELASTICSEARCH_PASSWORD
+        valueFrom:
+          secretKeyRef:
+            name: quickstart-es-elastic-user
+            key: elastic
+    fileConfigs:
+      04_outputs.conf: |-
+        <label @OUTPUT>
+          <match **>
+            @type elasticsearch
+            host "#{ENV['FLUENT_ELASTICSEARCH_HOST']}"
+            port "#{ENV['FLUENT_ELASTICSEARCH_PORT']}"
+            scheme "#{ENV['FLUENT_ELASTICSEARCH_SCHEME'] || 'http'}"
+            ssl_verify "#{ENV['FLUENT_ELASTICSEARCH_SSL_VERIFY'] || 'true'}"
+            user "#{ENV['FLUENT_ELASTICSEARCH_USER']}"
+            password "#{ENV['FLUENT_ELASTICSEARCH_PASSWORD']}"
+            path ""
+            verify_es_version_at_startup true
+            include_timestamp true
+          </match>
+        </label>
