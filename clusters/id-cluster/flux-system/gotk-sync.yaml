@@ -20,7 +20,7 @@ metadata:
   namespace: flux-system
 spec:
   interval: 10m0s
-  path: ./clusters/jak-cluster
+  path: ./clusters/id-cluster
   prune: true
   sourceRef:
     kind: GitRepository
