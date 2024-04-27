@@ -18,10 +18,10 @@ spec:
     - patch: |
         - op: replace
           path: /spec/values/grafana/ingress/hosts/0
-          value: "grafana-jak.gangstack.com"
+          value: "grafana-id.gangstack.com"
         - op: replace
           path: /spec/values/grafana/ingress/tls/0/hosts/0
-          value: "grafana-jak.gangstack.com"
+          value: "grafana-id.gangstack.com"
       target:
         kind: HelmRelease
         name: prometheus-operator
@@ -53,10 +53,10 @@ spec:
     - patch: |
         - op: replace
           path: /spec/rules/0/host
-          value: "kibana-jak.gangstack.com"
+          value: "kibana-id.gangstack.com"
         - op: replace
           path: /spec/tls/0/hosts/0
-          value: "kibana-jak.gangstack.com"
+          value: "kibana-id.gangstack.com"
       target:
         kind: Ingress
         name: kibana-ingress
