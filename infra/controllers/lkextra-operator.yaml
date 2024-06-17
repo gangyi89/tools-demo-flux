@@ -30,3 +30,5 @@ spec:
         kind: GitRepository
         name: lkextra-operator
         namespace: lkextra
+  values:
+    namespace: lkextra
