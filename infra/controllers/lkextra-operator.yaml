@@ -5,10 +5,27 @@ metadata:
   name: lkextra
 ---
 apiVersion: source.toolkit.fluxcd.io/v1beta2
-kind: HelmRepository
+kind: GitRepository
 metadata:
   name: lkextra-operator
   namespace: lkextra
 spec:
   interval: 24h
-  url: https://github.com/gangyi89/lkextra-operator/chart
+  url: https://github.com/gangyi89/lkextra-operator
+---
+piVersion: helm.toolkit.fluxcd.io/v2beta2
+kind: HelmRelease
+metadata:
+  name: lkextra-operator
+  namespace: lkextra
+spec:
+  interval: 30m
+  chart:
+    spec:
+      chart: ingress-nginx
+      version: "*"
+      sourceRef:
+        kind: GitRepository
+        name: lkextra-operator
+        namespace: lkextra
+      interval: 12h
