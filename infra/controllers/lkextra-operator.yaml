@@ -24,7 +24,7 @@ spec:
   interval: 1m
   chart:
     spec:
-      chart: /
+      chart: .
       version: "*"
       sourceRef:
         kind: GitRepository
