@@ -21,7 +21,7 @@ metadata:
   name: lkextra-operator
   namespace: lkextra
 spec:
-  interval: 30m
+  interval: 1m
   chart:
     spec:
       chart: /
@@ -30,4 +30,3 @@ spec:
         kind: GitRepository
         name: lkextra-operator
         namespace: lkextra
-      interval: 12h
