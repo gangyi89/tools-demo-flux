@@ -31,6 +31,7 @@ spec:
         name: lkextra-operator
         namespace: lkextra
   values:
+    nodePools:
     - nodePoolID: "275176"
       taints:
         - key: "app"
