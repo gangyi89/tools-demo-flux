@@ -30,3 +30,9 @@ spec:
         kind: GitRepository
         name: lkextra-operator
         namespace: lkextra
+  values:
+    - nodePoolID: "275176"
+      taints:
+        - key: "app"
+          value: "reserve"
+          effect: "NoSchedule" # or "PreferNoSchedule"
