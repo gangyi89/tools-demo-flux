@@ -34,6 +34,6 @@ spec:
     nodePools:
     - nodePoolID: "275176"
       taints:
-        - key: "app"
-          value: "reserve"
+        - key: "hello"
+          value: "chicken"
           effect: "NoSchedule" # or "PreferNoSchedule"
