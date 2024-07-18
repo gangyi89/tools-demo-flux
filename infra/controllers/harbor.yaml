@@ -34,7 +34,7 @@ spec:
       type: ingress
       tls:
         enabled: true
-        certSource: secret
+        certSource: auto
       ingress:
         hosts:
           core: harbor.gangstack.com
@@ -42,7 +42,6 @@ spec:
           kubernetes.io/ingress.class: nginx
           cert-manager.io/cluster-issuer: "letsencrypt"
         tls:
-          - secretName: harbor-tls
-            hosts:
+          - hosts:
               - harbor.gangstack.com
     externalURL: https://harbor.gangstack.com
