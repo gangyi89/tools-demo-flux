@@ -37,8 +37,7 @@ spec:
           kubernetes.io/ingress.class: nginx
           cert-manager.io/cluster-issuer: letsencrypt
         hosts:
-          core:
-            - harbor.gangstack.com
+          - harbor.gangstack.com
       tls:
         enabled: true
         certSource: secret
