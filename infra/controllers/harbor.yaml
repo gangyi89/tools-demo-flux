@@ -12,7 +12,7 @@ spec:
   interval: 24h
   url: https://helm.goharbor.io
 ---
-## Write helmRelease for Harbor
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: harbor-operator
@@ -28,21 +28,3 @@ spec:
         name: harbor-operator
         namespace: harbor
       interval: 1m
-
-
-# apiVersion: helm.toolkit.fluxcd.io/v2beta1
-# kind: HelmRelease
-# metadata:
-#   name: elastic-operator
-#   namespace: elastic
-# spec:
-#   interval: 5m
-#   chart:
-#     spec:
-#       chart: eck-operator
-#       version: '2.12.0'
-#       sourceRef:
-#         kind: HelmRepository
-#         name: elastic-operator
-#         namespace: elastic
-#       interval: 1m
