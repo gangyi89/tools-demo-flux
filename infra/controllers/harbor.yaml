@@ -21,7 +21,7 @@ spec:
   interval: 5m
   chart:
     spec:
-      chart: harbor-operator
+      chart: harbor
       version: '1.14.3'
       sourceRef:
         kind: HelmRepository
