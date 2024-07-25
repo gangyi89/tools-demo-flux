@@ -20,7 +20,7 @@ flux bootstrap github \
   --owner=<my-github-username> \
   --repository=my-repository-name \
   --branch=main \
-  --path=clusters/sg-cluster \
+  --path=clusters/id-cluster \
   --personal
 ```
 
