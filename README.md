@@ -52,6 +52,7 @@ htpasswd -c auth anvesh
 2. Save as secret in redis namespace
 ```
 kubectl create secret generic redis-insights-auth --from-file=auth -n redis
+kubectl create secret generic akhq-auth --from-file=auth -n kafka
 ```
 3. Ingress gateway will use this secret to authenticate requests to the service
 
