@@ -29,7 +29,7 @@ spec:
         connections:
           local:
             properties:
-              bootstrap.servers: "my-cluster-kafka-bootstrap.kafka.svc.cluster.local:9092"
+              - bootstrap.servers: "my-cluster-kafka-bootstrap.kafka.svc.cluster.local:9092"
     ingress:
       enabled: true
       ingressClassName: "nginx"
