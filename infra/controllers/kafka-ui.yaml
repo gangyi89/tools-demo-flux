@@ -40,5 +40,5 @@ spec:
         - akhq.gangstack.com
       tls:
         - secretName: akhq-general-tls
-        hosts:
-          - akhq.gangstack.com
+          hosts:
+            - akhq.gangstack.com
