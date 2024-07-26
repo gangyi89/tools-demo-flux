@@ -42,4 +42,17 @@ kubectl get secret quickstart-es-elastic-user -n elastic -o go-template='{{.data
 kubectl get secret prometheus-operator-grafana -n monitoring -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
 ```
 
+## Redis Insights
+As redis insights currently does not support authentication, we will use ingress gateway basic auth to restrict access to the service.
+
+1. Create basic auth credentials
+```
+htpasswd -c auth anvesh
+```
+2. Save as secret in redis namespace
+```
+kubectl create secret generic redis-insights-auth --from-file=auth -n redis
+```
+3. Ingress gateway will use this secret to authenticate requests to the service
+
 [Repo structure guide](https://github.com/fluxcd/flux2-kustomize-helm-example)
