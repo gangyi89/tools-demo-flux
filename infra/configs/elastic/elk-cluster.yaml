@@ -55,9 +55,10 @@ metadata:
   name: kibana-ingress
   namespace: elastic
   annotations:
-    kubernetes.io/ingress.class: nginx
+    kubernetes.io/ingress.class: nginx-mgmt
     cert-manager.io/cluster-issuer: letsencrypt
 spec:
+  ingressClassName: nginx-mgmt
   rules:
   - host: kibana.gangstack.com
     http:
