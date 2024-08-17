@@ -9,3 +9,24 @@ spec:
       image: nginx:latest
       ports:
         - containerPort: 80
+
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: application-ingress
+  namespace: default
+  annotations:
+    kubernetes.io/ingress.class: nginx-app
+spec:
+  ingressClassName: nginx-app
+  rules:
+    - host: example.com  # Replace with your domain
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: nginx-service
+                port: 
+                  number: 80

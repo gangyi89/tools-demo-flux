@@ -38,6 +38,7 @@ spec:
         enabled: true
         default: true
         controllerValue: "k8s.io/ingress-nginx-app"
+      ingressClass: nginx-app
       service:
         type: "LoadBalancer"
     admissionWebhooks:
