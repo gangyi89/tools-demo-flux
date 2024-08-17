@@ -38,11 +38,12 @@ flux bootstrap github \
 
 ## Additional Link
 
-## Access Kibana and Grafana
+## Access Kibana, Grafana, Rook Dashboard
 Run the following command to obtain the credentials
 ```
 kubectl get secret quickstart-es-elastic-user -n elastic -o go-template='{{.data.elastic | base64decode}}'
 kubectl get secret prometheus-operator-grafana -n monitoring -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
+kubectl -n rook-ceph get secret rook-ceph-dashboard-password -o jsonpath="{['data']['password']}" | base64 --decode && echo
 ```
 
 ## Redis Insights
