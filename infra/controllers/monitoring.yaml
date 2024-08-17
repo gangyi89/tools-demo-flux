@@ -50,7 +50,7 @@ spec:
       enabled: true
     prometheus:
       enabled: true
-      additionalScrapeConfigsSecrets:
+      additionalScrapeConfigs:
         enabled: true
         name: additional-scrape-configs
         key: prometheus-additional.yaml
