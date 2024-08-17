@@ -50,7 +50,9 @@ spec:
       enabled: true
     prometheus:
       enabled: true
-      additionalScrapeConfigs:
-        enabled: true
-        name: additional-scrape-configs
-        key: prometheus-additional.yaml
+      prometheusSpec:
+        additionalScrapeConfigs:
+          enabled: true
+          name: additional-scrape-configs
+          key: prometheus-additional.yaml
+        podMonitorSelectorNilUsesHelmValues: false
