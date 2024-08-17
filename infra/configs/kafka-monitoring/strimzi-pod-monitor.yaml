@@ -5,7 +5,7 @@ metadata:
   namespace: monitoring
   labels:
     app: strimzi
-    release: prometheus-operator
+    Release: prometheus-operator
 spec:
   selector:
     matchLabels:
@@ -24,7 +24,7 @@ metadata:
   namespace: monitoring
   labels:
     app: strimzi
-    release: prometheus-operator
+    Release: prometheus-operator
 spec:
   selector:
     matchLabels:
@@ -43,7 +43,7 @@ metadata:
   namespace: monitoring
   labels:
     app: strimzi
-    release: prometheus-operator
+    Release: prometheus-operator
 spec:
   selector:
     matchLabels:
@@ -62,7 +62,7 @@ metadata:
   namespace: monitoring
   labels:
     app: strimzi
-    release: prometheus-operator
+    Release: prometheus-operator
 spec:
   selector:
     matchExpressions:
