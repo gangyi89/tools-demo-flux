@@ -36,7 +36,7 @@ spec:
         enabled: true
         certSource: auto
       ingress:
-        ingressClassName: nginx-mgmt
+        className: nginx-mgmt
         hosts:
           core: harbor.gangstack.com
         annotations:
