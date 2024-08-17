@@ -3,6 +3,8 @@ kind: Pod
 metadata:
   name: nginx-pod
   namespace: default
+  labels:
+    app: nginx-pod  
 spec:
   containers:
     - name: nginx-container
@@ -35,6 +37,7 @@ spec:
   tls:
   - hosts:
     - app.gangstack.com
+    secretName: app-gangstack-tls 
   rules:
     - host: app.gangstack.com 
       http:
