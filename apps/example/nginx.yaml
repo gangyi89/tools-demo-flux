@@ -29,10 +29,14 @@ metadata:
   namespace: default
   annotations:
     kubernetes.io/ingress.class: nginx-app
+    cert-manager.io/cluster-issuer: "letsencrypt"
 spec:
   ingressClassName: nginx-app
+  tls:
+  - hosts:
+    - app.gangstack.com
   rules:
-    - host: app.gangstack.com # Replace with your domain
+    - host: app.gangstack.com 
       http:
         paths:
           - path: /
