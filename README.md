@@ -29,6 +29,9 @@ flux bootstrap github \
 ### Fluentd
 [fluent-plugin-elasticsearch](https://github.com/uken/fluent-plugin-elasticsearch?tab=readme-ov-file#suppress_type_name)
 
+### Elastic
+1. [Stack Monitoring](https://github.com/elastic/cloud-on-k8s/blob/main/docs/advanced-topics/stack-monitoring.asciidoc)
+
 ### Alert and Monitoring - Grafana & Prometheus
 
 ### Custom docker registry

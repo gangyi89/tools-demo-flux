@@ -5,6 +5,13 @@ metadata:
   namespace: elastic
 spec:
   version: 8.13.2
+  monitoring:
+    metrics:
+      elasticsearchRefs:
+      - name: quickstart
+    logs:
+      elasticsearchRefs:
+      - name: quickstart        
   nodeSets:
   - name: default
     count: 1
@@ -27,6 +34,13 @@ metadata:
   namespace: elastic
 spec:
   version: 8.13.2
+  monitoring:
+    metrics:
+      elasticsearchRefs:
+      - name: quickstart
+    logs:
+      elasticsearchRefs:
+      - name: quickstart  
   count: 1
   elasticsearchRef:
     name: quickstart
