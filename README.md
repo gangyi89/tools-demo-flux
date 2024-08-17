@@ -57,3 +57,12 @@ kubectl create secret generic akhq-auth --from-file=auth -n kafka
 3. Ingress gateway will use this secret to authenticate requests to the service
 
 [Repo structure guide](https://github.com/fluxcd/flux2-kustomize-helm-example)
+
+4. Add redis grafana dashboard
+```
+Redis Data Source
+https://redisgrafana.github.io/redis-datasource/overview/
+
+Redis Dashboard template
+https://grafana.com/grafana/dashboards/12776-redis/
+```

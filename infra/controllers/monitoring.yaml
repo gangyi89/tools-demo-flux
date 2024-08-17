@@ -45,9 +45,12 @@ spec:
           - secretName: grafana-general-tls
             hosts:
               - "grafana.gangstack.com"
-
         path: /
     alertmanager:
       enabled: true
     prometheus:
       enabled: true
+      additionalScrapeConfigsSecrets:
+        enabled: true
+        name: additional-scrape-configs
+        key: prometheus-additional.yaml
