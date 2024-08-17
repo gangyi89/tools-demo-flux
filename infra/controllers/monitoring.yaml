@@ -55,7 +55,7 @@ spec:
           enabled: true
           name: additional-scrape-configs
           key: prometheus-additional.yaml
-      podMonitorSelectorNilUsesHelmValues: false
+        podMonitorSelectorNilUsesHelmValues: false
         podMonitorSelector: 
           matchLabels:
             app: strimzi
