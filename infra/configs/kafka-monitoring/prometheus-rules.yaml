@@ -1,11 +1,11 @@
 apiVersion: monitoring.coreos.com/v1
 kind: PrometheusRule
-namespace: monitoring
 metadata:
   labels:
     role: alert-rules
     app: strimzi
   name: prometheus-k8s-rules
+  namespace: monitoring
 spec:
   groups:
   - name: kafka
