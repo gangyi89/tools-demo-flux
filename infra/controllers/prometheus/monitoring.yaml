@@ -36,6 +36,7 @@ spec:
       enabled: true
       ingress:
         enabled: true
+        ingressClassName: nginx-mgmt
         annotations: 
           kubernetes.io/ingress.class: nginx-mgmt
           cert-manager.io/cluster-issuer: letsencrypt
