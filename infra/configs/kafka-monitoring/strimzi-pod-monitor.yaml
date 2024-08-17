@@ -37,6 +37,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: PodMonitor
 metadata:
   name: bridge-metrics
+  namespace: monitoring
   labels:
     app: strimzi
 spec:
@@ -52,6 +53,7 @@ spec:
 ---
 apiVersion: monitoring.coreos.com/v1
 kind: PodMonitor
+namespace: monitoring
 metadata:
   name: kafka-resources-metrics
   labels:
