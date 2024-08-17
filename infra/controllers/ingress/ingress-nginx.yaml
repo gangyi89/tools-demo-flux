@@ -33,7 +33,24 @@ spec:
       interval: 12h
   values:
     controller:
+      ingressClassResource:
+        name: nginx-app
+        enabled: true
+        default: true
+        controllerValue: "k8s.io/ingress-nginx-app"
       service:
         type: "LoadBalancer"
     admissionWebhooks:
       enabled: false
+
+    extraControllers:
+    - name: mgmt-controller
+      ingressClassResource:
+        name: nginx-mgmt
+        enabled: true
+        default: false
+        controllerValue: "k8s.io/ingress-nginx-mgmt"
+      service:
+        type: "LoadBalancer"
+      admissionWebhooks:
+        enabled: false
